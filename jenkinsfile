@@ -56,14 +56,6 @@ pipeline {
                 sh 'terraform apply --auto-approve'
             }
         }
-        stage('Empty State Bucket') {
-            when {
-                equals expected: true, actual: params.destroy
-            }
-            steps{
-                s3Delete(bucket:'docker-project-bucket', path:'/')
-            }
-        }
         stage('Terraform Destroy') {
             when {
                 equals expected: true, actual: params.destroy
