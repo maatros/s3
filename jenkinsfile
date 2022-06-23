@@ -61,7 +61,7 @@ pipeline {
                 equals expected: true, actual: params.destroy
             }
             steps{
-                sh 's3Delete(bucket:'docker-project-bucket')'
+                s3Delete(bucket:'my-bucket', path:'/')
             }
         }
         stage('Terraform Destroy') {
