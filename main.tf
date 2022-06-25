@@ -3,8 +3,6 @@ provider "aws" {
 }
 resource "aws_s3_bucket" "terraform_state" {
   bucket = var.bucket_name
-  block_public_acls   = true
-  block_public_policy = true
   force_destroy = var.bucket_force_destroy
   versioning {
     enabled = var.bucket_versioning
@@ -17,6 +15,13 @@ resource "aws_s3_bucket" "terraform_state" {
     }
   }
 }
+
+resource "aws_s3_bucket_public_access_block" "example" {
+  bucket = aws_s3_bucket.terraform_state.id
+  block_public_acls   = var.bucket_public_access_access_block_acls
+  block_public_policy = var.bucket_public_access_access_block_policy
+}
+
 resource "aws_dynamodb_table" "terraform_locks" {
   name         = var.dynamodb_table_name
   billing_mode = var.dynamodb_table_billing_mode
