@@ -24,14 +24,23 @@ variable "bucket_encryption_algorithm" {
 
 #----- AWS S3 Bucket Public Access Policy Block section BEGIN ------
 
-variable "bucket_public_access_access_block_acls" {
+variable "bucket_public_access_block_public_acls" {
     type = bool
     default = true
 }
-variable "bucket_public_access_access_block_policy" {
+variable "bucket_public_access_block_public_policy" {
     type = bool
     default = true
 }
+variable "bucket_public_access_ignore_public_acls" {
+    type = bool
+    default = true
+}
+variable "bucket_public_access_restrict_public_buckets" {
+    type = bool
+    default = true
+}
+
 #----- AWS S3 Bucket Public Access Policy Block section END ------
 
 #----- AWS DynamoDB Table section BEGIN ------
