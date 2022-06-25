@@ -16,10 +16,12 @@ resource "aws_s3_bucket" "terraform_state" {
   }
 }
 
-resource "aws_s3_bucket_public_access_block" "example" {
+resource "aws_s3_bucket_public_access_block" "block_public" {
   bucket = aws_s3_bucket.terraform_state.id
   block_public_acls   = var.bucket_public_access_access_block_acls
   block_public_policy = var.bucket_public_access_access_block_policy
+  ignore_public_acls = true
+  restrict_public_buckets =  true
 }
 
 resource "aws_dynamodb_table" "terraform_locks" {
