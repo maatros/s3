@@ -1,0 +1,46 @@
+variable "region" {
+    type = string 
+    default = "us-east-1"
+}
+
+#----- AWS S3 Bucket section BEGIN ------
+variable "bucket_name" {
+    type = string
+    default = "docker-project-bucket"
+}
+variable "bucket_force_destroy" {
+    type = bool
+    default = true
+}
+variable "bucket_versioning" {
+    type = bool
+    default = true
+}
+variable "bucket_encryption_algorithm" {
+    type = string
+    default = "AES256"
+}
+#----- AWS S3 Bucket section END ------
+
+#----- AWS DynamoDB Table section BEGIN ------
+variable "dynamodb_table_name" {
+    type = string
+    default = "docker-project-locks"
+}
+variable "dynamodb_table_billing_mode" {
+    type = string
+    default = "PAY_PER_REQUEST"
+}
+variable "dynamodb_table_hash_key" {
+    type = string
+    default = "LockID"
+}
+variable "dynamodb_table_attribute_name" {
+    type = string
+    default = "LockID"
+}
+variable "dynamodb_table_attribute_type" {
+    type = string
+    default = "S"
+}
+#----- AWS DynamoDB Table section END ------
