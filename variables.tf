@@ -46,7 +46,7 @@ variable "bucket_public_access_restrict_public_buckets" {
 #----- AWS DynamoDB Table section BEGIN ------
 variable "dynamodb_table_name" {
     type = string
-    default = "docker-project-locks"
+    default = "piko-nebo-docker-project-locks"
 }
 variable "dynamodb_table_billing_mode" {
     type = string
