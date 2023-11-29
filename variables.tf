@@ -1,12 +1,12 @@
 variable "region" {
     type = string 
-    default = "us-east-1"
+    default = "eu-north-1"
 }
 
 #----- AWS S3 Bucket section BEGIN ------
 variable "bucket_name" {
     type = string
-    default = "docker-project-bucket"
+    default = "piko-nebo-docker-project-bucket"
 }
 variable "bucket_force_destroy" {
     type = bool
